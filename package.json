@@ -9,7 +9,6 @@
   "author": "DBro",
   "license": "ISC",
   "dependencies": {
-    "airbrake-js": "^1.6.0-beta.1",
     "eslint": "^5.9.0",
     "twitter": "^1.7.1"
   }
