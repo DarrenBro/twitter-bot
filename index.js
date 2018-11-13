@@ -39,17 +39,15 @@ function tweet(message, succeed, fail) {
     );
 }
 
-// * Tweets Hello world! via AWS Lambda.
-// * @param event AWS Lambda event data for the handler.
-// * @param context AWS Lambda runtime information.
 exports.tweetHelloWorld = function(event, context) {
     tweet('Hello World', context.succeed, context.fail);
  };
  
- //  * Tweets the current time via AWS Lambda.
- //  * @param event AWS Lambda event data for the handler.
- //  * @param context AWS Lambda runtime information.
- exports.tweetTime = function(event, context) {
-     let currentdate = new Date();
-     tweet(currentdate.toLocaleTimeString(), context.succeed, context.fail);
+ exports.tweetBtCare = function(event, context) {
+     let oneDay = 24*60*60*1000, // hours*minutes*seconds*milliseconds
+         firstDate = new Date("08/22/2018"), //USA date format
+         currentDate = new Date(),
+         diffDays = Math.round(Math.abs((currentDate.getTime() - firstDate.getTime())/(oneDay)));
+        
+     tweet(" still waiting on your BT fibre to home, it's been " + diffDays + " days since I placed my order. My bot will update you tomorrow.", context.succeed, context.fail);
  };
