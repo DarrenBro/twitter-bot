@@ -2,7 +2,7 @@
 const twitter_credentials = require('./twitter-api-credentials');
 // twitter NPM module
 const Twitter = require('twitter');
- 
+
 // Use exported secret credentials.
 // instantiate a new Twitter object and pass the credentials to it
 let twitter = new Twitter(twitter_credentials);
@@ -39,15 +39,16 @@ function tweet(message, succeed, fail) {
     );
 }
 
+// Hello world example, fell free to delete
 exports.tweetHelloWorld = function(event, context) {
     tweet('Hello World', context.succeed, context.fail);
  };
- 
- exports.tweetBtCare = function(event, context) {
+
+ exports.tweetMessage = function(event, context) {
      let oneDay = 24*60*60*1000, // hours*minutes*seconds*milliseconds
          firstDate = new Date("08/22/2018"), //USA date format
          currentDate = new Date(),
          diffDays = Math.round(Math.abs((currentDate.getTime() - firstDate.getTime())/(oneDay)));
-        
-     tweet(" still waiting on your BT fibre to home, it's been " + diffDays + " days since I placed my order. My bot will update you tomorrow.", context.succeed, context.fail);
+
+     tweet("Enter Message Here", context.succeed, context.fail);
  };
